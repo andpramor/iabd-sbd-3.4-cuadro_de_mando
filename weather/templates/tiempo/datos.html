@@ -1,5 +1,33 @@
 {% extends 'tiempo/base.html' %} {% block title %}
 <title>Datos</title>
 {% endblock %} {% block content %}
-<h1 class="h1">PÁGINA DE DATOS</h1>
+<h1 class="h2 text-center my-4">PRÓXIMOS 7 DÍAS</h1>
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr class="table-dark">
+      <th scope="col">Fecha y Hora</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Temperatura (°C)</th>
+      <th scope="col">Humedad (%)</th>
+      <th scope="col">Sensación térmica (°C)</th>
+      <th scope="col">Precipitación (mm)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for fila in datos %}
+    <tr>
+      <th scope="row">{{ fila.date }}</th>
+      <td>{{ fila.summary }}</td>
+      <td>{{ fila.temperature }}</td>
+      <td>{{ fila.humidity }}</td>
+      <td>{{ fila.apparent_temp }}</td>
+      <td>{{ fila.precip_mm }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="6">No hay datos disponibles en el CSV.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
