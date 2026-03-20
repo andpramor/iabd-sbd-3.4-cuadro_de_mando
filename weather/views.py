@@ -24,8 +24,12 @@ def datos(request):
         "Sunny": "Soleado",
         "Partly Sunny": "Parcialmente soleado",
         "Overcast": "Nublado",
-        "Cloudy": "Nublado",
+        "Fog": "Niebla",
         "Rain": "Lluvia",
+        "Snow": "Nieve",
+        "Rain shower": "Chubascos",
+        "Thunderstorm": "Tormenta",
+        "Cloudy": "Nublado",
     }
 
     with open(ruta_archivo, mode="r", encoding="utf-8") as f:
