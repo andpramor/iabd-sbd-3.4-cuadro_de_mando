@@ -1,5 +1,36 @@
 {% extends 'tiempo/base.html' %} {% block title %}
 <title>INICIO</title>
 {% endblock %} {% block content %}
-<h1 class="h1 text-center">PÁGINA DE INICIO</h1>
-{% endblock %}
+<h1 class="h1 text-center my-3">PREVISIÓN DEL TIEMPO</h1>
+<div class="row justify-content-center my-3">
+  <div class="col-12 col-md-6">
+    <img
+      src="media/andalucia.png"
+      alt="Andalucía"
+      class="img-fluid mx-auto d-block w-100"
+    />
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-12 col-md-6 my-5">
+    <form action="#" class="d-flex">
+      <select
+        class="form-select mx-3 shadow"
+        aria-label="Default select example"
+      >
+        <option selected>Provincia</option>
+        <option value="1">Sevilla</option>
+        <option value="2">Cádiz</option>
+        <option value="3">Huelva</option>
+        <option value="4">Córdoba</option>
+        <option value="5">Jaén</option>
+        <option value="6">Granada</option>
+        <option value="7">Almería</option>
+        <option value="8">Málaga</option>
+      </select>
+
+      <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+  </div>
+  {% endblock %}
+</div>
