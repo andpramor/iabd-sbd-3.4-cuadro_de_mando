@@ -27,7 +27,7 @@ def datos(request):
         "Fog": "Niebla",
         "Rain": "Lluvia",
         "Snow": "Nieve",
-        "Rain shower": "Chubascos",
+        "Rain showers": "Chubascos",
         "Thunderstorm": "Tormenta",
         "Cloudy": "Nublado",
     }

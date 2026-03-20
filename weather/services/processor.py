@@ -1,7 +1,9 @@
 import os
+
 import polars as pl
-from scripts_1_7_weather_apis.db_connection import BASE_DIR
-from .db_connector import get_polars_df_from_last_fetch
+from django.conf import settings
+
+from .db_reader import get_polars_df_from_last_fetch
 
 """
 # Utilizando Polars:
@@ -32,7 +34,7 @@ def clean_nulls(df):
 def export_to_csv(df, filename):
     """Exportar un DataFrame de Polars a CSV."""
     output_dir = (
-        f"{BASE_DIR}/data_output/silver_layer"  # Directorio de salida para los CSVs
+        f"{settings.BASE_DIR}/data_silver_layer"  # Directorio de salida para los CSVs
     )
     os.makedirs(output_dir, exist_ok=True)  # Crear el directorio si no existe
 
@@ -170,11 +172,9 @@ def get_stats_dataframe(df):
 
 
 if __name__ == "__main__":
-
-    df = get_polars_df_from_last_fetch("openmeteo")
+    df = get_polars_df_from_last_fetch()
 
     if df is not None:
-
         df_hourly = get_hourly_weather_dataframe(df)
         df_current = get_current_weather_dataframe(df)
         df_stats = get_stats_dataframe(df)
@@ -186,4 +186,5 @@ if __name__ == "__main__":
         print(df_current)
 
         print("--- VISTA DE ESTADÍSTICAS POR ID ---")
+        print(df_stats.head(10))
         print(df_stats.head(10))

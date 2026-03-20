@@ -1,6 +1,9 @@
-import polars as pl
 import sqlite3
-from scripts_1_7_weather_apis.db_connection import DB_PATH
+
+import polars as pl
+from django.conf import settings
+
+DB_PATH = f"{settings.BASE_DIR}/db.sqlite3"
 
 
 def get_weather_schema():
@@ -47,14 +50,10 @@ def get_weather_schema():
                                         pl.Field("date", pl.String),
                                         pl.Field("weather", pl.String),
                                         pl.Field("temperature", pl.Float64),
-                                        pl.Field("humidity", pl.Int64),  # Nombre exacto
-                                        pl.Field(
-                                            "apparent_temp", pl.Float64
-                                        ),  # Nombre exacto (antes estaba temperature_2m)
+                                        pl.Field("humidity", pl.Int64),
+                                        pl.Field("apparent_temp", pl.Float64),
                                         pl.Field("precipitation", precip_schema),
-                                        pl.Field(
-                                            "precip_prob", pl.Int64
-                                        ),  # Nombre exacto
+                                        pl.Field("precip_prob", pl.Int64),
                                         pl.Field("summary", pl.String),
                                     ]
                                 )
@@ -67,7 +66,7 @@ def get_weather_schema():
     )
 
 
-def get_polars_df_from_last_fetch(table_name):
+def get_polars_df_from_last_fetch(table_name="openmeteo"):
     """
     Obtener un DataFrame de Polars a partir de una tabla en SQLite, decodificando el JSON con un esquema manual.
     """
