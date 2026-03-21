@@ -1,0 +1,13 @@
+svg {
+  width: 100%;
+}
+
+svg .provincia {
+  fill: #e0e0e0;
+  cursor: pointer;
+  stroke-width: 0.25px;
+  transition: fill 0.3s ease;
+}
+svg .provincia:hover {
+  fill: #2ecc71;
+}
