@@ -11,3 +11,8 @@ svg .provincia {
 svg .provincia:hover {
   fill: #2ecc71;
 }
+
+.table-hover > tbody > tr:hover {
+  --bs-table-hover-bg: #e0f7fa; /* Un azul muy claro que combina con border-info */
+  /* --bs-table-hover-color: #000; Opcional: cambia el color del texto si es necesario */
+}

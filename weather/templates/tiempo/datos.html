@@ -1,41 +1,61 @@
 {% extends 'tiempo/base.html' %} {% block title %}
 <title>{{ provincia|upper }}</title>
 {% endblock %} {% block content %}
-<h1 class="h2 text-center my-4">PREDICCIÓN PRÓXIMOS 7 DÍAS EN {{ provincia|upper }}</h1>
+<h1 class="h2 text-center my-4">
+  PREDICCIÓN PRÓXIMOS 7 DÍAS EN {{ provincia|upper }}
+</h1>
 <nav aria-label="Navegacion de paginas">
   <ul class="pagination justify-content-center">
     {% if datos.has_previous %}
     <li class="page-item">
-      <a class="page-link" href="?page=1">&laquo; Primero</a>
+      <a class="page-link text-black" href="?page=1">&laquo; Primero</a>
     </li>
     <li class="page-item">
-      <a class="page-link" href="?page={{ datos.previous_page_number }}">Anterior</a>
+      <a
+        class="page-link text-black"
+        href="?page={{ datos.previous_page_number }}"
+        >Anterior</a
+      >
     </li>
     {% else %}
-    <li class="page-item disabled"><span class="page-link">&laquo; Primero</span></li>
+    <li class="page-item disabled">
+      <span class="page-link">&laquo; Primero</span>
+    </li>
     <li class="page-item disabled"><span class="page-link">Anterior</span></li>
     {% endif %}
 
     <li class="page-item active">
-      <span class="page-link"> Día {{ datos.number }} de {{ datos.paginator.num_pages }} </span>
+      <span class="page-link bg-info-subtle text-black border-info">
+        Día {{ datos.number }} de {{ datos.paginator.num_pages }}
+      </span>
     </li>
 
     {% if datos.has_next %}
     <li class="page-item">
-      <a class="page-link" href="?page={{ datos.next_page_number }}">Siguiente</a>
+      <a class="page-link text-black" href="?page={{ datos.next_page_number }}"
+        >Siguiente</a
+      >
     </li>
     <li class="page-item">
-      <a class="page-link" href="?page={{ datos.paginator.num_pages }}">Último &raquo;</a>
+      <a
+        class="page-link text-black"
+        href="?page={{ datos.paginator.num_pages }}"
+        >Último &raquo;</a
+      >
     </li>
     {% else %}
-    <li class="page-item disabled"><span class="page-link">Siguiente</span></li>
-    <li class="page-item disabled"><span class="page-link">Último &raquo;</span></li>
+    <li class="page-item disabled">
+      <span class="page-link">Siguiente</span>
+    </li>
+    <li class="page-item disabled">
+      <span class="page-link">Último &raquo;</span>
+    </li>
     {% endif %}
   </ul>
 </nav>
-<table class="table table-hover table-bordered">
+<table class="table table-hover table-bordered border-info">
   <thead>
-    <tr class="table-dark">
+    <tr class="table-info">
       <th scope="col">Fecha y Hora</th>
       <th scope="col">Estado</th>
       <th scope="col">Temperatura (°C)</th>

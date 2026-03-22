@@ -7,6 +7,11 @@
     {% block title %}{% endblock %}
     <!-- Bootstrap CSS CDN link -->
     <link
+      rel="shortcut icon"
+      href="{% static 'icons/favicon.svg' %}"
+      type="image/svg+xml"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
@@ -16,9 +21,18 @@
   </head>
   <body>
     <header class="mb-3">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg bg-info-subtle">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">INICIO</a>
+          <a class="navbar-brand" href="/">
+            <img
+              src="{% static 'icons/favicon.svg' %}"
+              alt="Logo"
+              width="30"
+              height="24"
+              class="d-inline-block align-text-top"
+            />
+            Inicio
+          </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -37,6 +51,41 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/graficos">Gráficos</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Provincias
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="/datos/almeria">Almería</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/datos/cadiz">Cádiz</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/datos/cordoba">Córdoba</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/datos/granada">Granada</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/datos/huelva">Huelva</a>
+                  </li>
+                  <li><a class="dropdown-item" href="/datos/jaen">Jaén</a></li>
+                  <li>
+                    <a class="dropdown-item" href="/datos/malaga">Málaga</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/datos/sevilla">Sevilla</a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
