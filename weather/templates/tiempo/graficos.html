@@ -1,8 +1,31 @@
-{% extends 'tiempo/base.html' %} {% block title %}
-<title>Gráficos</title>
-{% endblock %} {% block content %}
-<h1 class="h1">PÁGINA DE GRÁFICOS</h1>
+{% extends 'tiempo/base.html' %}
 
-<!-- INSERTAR GRÁFICOS AQUÍ -->
+{% block title %}
+<title>Gráficos - {{ provincia|capfirst }}</title>
+{% endblock %}
 
+{% block content %}
+<div class="container mt-4">
+    <h1 class="h1 text-center mb-4">Panel de Control: {{ provincia|upper }}</h1>
+
+    <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
+        <button class="btn btn-outline-primary" onclick="irAGrafico(0)">Calor</button>
+        <button class="btn btn-outline-primary" onclick="irAGrafico(450)">Humedad</button>
+        <button class="btn btn-outline-primary" onclick="irAGrafico(850)">Lluvia/Temp</button>
+        <button class="btn btn-outline-primary" onclick="irAGrafico(1300)">Variabilidad</button>
+        <button class="btn btn-outline-primary" onclick="irAGrafico(1750)">Radar Clima</button>
+    </div>
+
+    <div id="contenedor-graficos" class="card shadow p-3 mb-5 bg-white rounded" 
+         style="height: 600px; overflow-y: auto; scroll-behavior: smooth;">
+        {{ graficos|safe }}
+    </div>
+</div>
+
+<script>
+    function irAGrafico(pixeles) {
+        const contenedor = document.getElementById('contenedor-graficos');
+        contenedor.scrollTop = pixeles;
+    }
+</script>
 {% endblock %}

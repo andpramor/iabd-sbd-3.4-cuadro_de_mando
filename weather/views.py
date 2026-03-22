@@ -6,6 +6,7 @@ from django.conf import settings
 from django.core.paginator import Paginator
 from django.shortcuts import render
 
+from .services.graficos import get_weather_dashboard
 from .services.predictions import prediccion_clima
 
 traduccion = {
@@ -50,7 +51,12 @@ def index(request):
 
 
 def graficos(request, provincia):
-    context = {"provincia": provincia}
+    graficos_html = get_weather_dashboard(provincia)
+
+    context = {
+        "provincia": provincia,
+        "graficos": graficos_html,
+    }
     return render(request, "tiempo/graficos.html", context)
 
 
