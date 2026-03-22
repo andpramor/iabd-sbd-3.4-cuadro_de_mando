@@ -2,10 +2,52 @@
 <title>{{ provincia|upper }}</title>
 {% endblock %} {% block content %}
 <h2 class="h2 text-center my-4">AHORA EN {{ provincia|upper }}</h2>
+
+<div class="table-responsive">
+  <table class="table table-hover table-striped table-bordered border-info">
+    <thead>
+      <tr class="table-info">
+        <th scope="col">Estado</th>
+        <th scope="col">Temperatura (°C)</th>
+        <th scope="col">Cobertura de nubes (%)</th>
+        <th scope="col">Precipitación (mm)</th>
+        <th scope="col">Tipo de precipitación</th>
+        <th scope="col">Velocidad del viento (km/h)</th>
+        <th scope="col">Dirección del viento</th>
+      </tr>
+    </thead>
+    <tbody class="table-light">
+      {% for fila in datos_current %}
+      <tr>
+        <td>
+          <img
+            src="{% static fila.icon %}"
+            alt="{{ fila.estado }}"
+            width="30"
+            height="30"
+          />
+          {{ fila.estado }}
+        </td>
+        <td>{{ fila.temperatura }}</td>
+        <td>{{ fila.nubes }}</td>
+        <td>{{ fila.precipitacion_mm }}</td>
+        <td>{{ fila.tipo_precipitacion }}</td>
+        <td>{{ fila.velocidad_viento }}</td>
+        <td>{{ fila.direccion_viento }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="6">No hay datos disponibles en el CSV.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
 <h2 class="h2 text-center my-4">
   PREDICCIÓN PRÓXIMOS 7 DÍAS EN {{ provincia|upper }}
 </h2>
-<!-- Tabla aquí -->
+
 <nav aria-label="Navegacion de paginas">
   <ul class="pagination justify-content-center">
     {% if datos.has_previous %}
@@ -55,6 +97,7 @@
     {% endif %}
   </ul>
 </nav>
+
 <div class="table-responsive">
   <table class="table table-hover table-striped table-bordered border-info">
     <thead>
@@ -69,7 +112,7 @@
       </tr>
     </thead>
     <tbody class="table-light">
-      {% for fila in datos %}
+      {% for fila in datos_hourly %}
       <tr>
         <th scope="row">{{ fila.date }}</th>
         <td>
