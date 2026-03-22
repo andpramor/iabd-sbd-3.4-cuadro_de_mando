@@ -1,10 +1,10 @@
-import csv
-import os
 from datetime import datetime
 
-from django.conf import settings
+import polars as pl
 from django.core.paginator import Paginator
 from django.shortcuts import render
+
+from .services.predictions import prediccion_clima
 
 
 def index(request):
@@ -16,41 +16,72 @@ def graficos(request):
 
 
 def datos_hourly(request, provincia):
-    datos_clima = []
-    nombre_archivo = f"{provincia}.csv"
-    ruta_archivo = os.path.join(
-        settings.BASE_DIR, "data_silver_layer/data_hourly", nombre_archivo
-    )
+    df = prediccion_clima(provincia)
 
     traduccion = {
         "Sunny": "Soleado",
+        "sunny": "Soleado",
         "Partly sunny": "Parcialmente soleado",
+        "partly sunny": "Parcialmente soleado",
         "Overcast": "Nublado",
+        "overcast": "Nublado",
         "Fog": "Niebla",
+        "fog": "Niebla",
         "Rain": "Lluvia",
+        "rain": "Lluvia",
         "Snow": "Nieve",
+        "snow": "Nieve",
         "Rain showers": "Chubascos",
+        "rain showers": "Chubascos",
         "Thunderstorm": "Tormenta",
-        "Cloudy": "Nublado",
+        "thunderstorm": "Tormenta",
+        "Cloudy": "Muy nublado",
+        "cloudy": "Muy nublado",
     }
 
-    if os.path.exists(ruta_archivo):
-        with open(ruta_archivo, mode="r", encoding="utf-8") as f:
-            lector = csv.DictReader(f)
-            for fila in lector:
-                try:
-                    fila["date"] = datetime.fromisoformat(fila["date"]).strftime(
+    iconos = {
+        "Sunny": "sunny",
+        "Partly sunny": "partly_sunny",
+        "Overcast": "overcast",
+        "Cloudy": "cloudy",
+        "Fog": "fog",
+        "Rain": "rain",
+        "Rain showers": "showers",
+        "Snow": "snow",
+        "Thunderstorm": "thunder",
+    }
+
+    if df is not None and not df.is_empty():
+        # Aplicamos la traducción y el formato de fecha directamente en el DataFrame
+        df = df.with_columns(
+            [
+                (
+                    pl.lit("icons/")
+                    + pl.col("summary").replace(iconos, default="favicon")
+                    + pl.lit(".svg")
+                ).alias("icon"),
+                # Formatear fecha (asumiendo que 'date' ya es tipo datetime o string ISO)
+                pl.col("date").map_elements(
+                    lambda x: datetime.fromisoformat(str(x)).strftime(
                         "%d/%m/%Y - %H:%M"
-                    )  # Antes no hacía el .strftime().
-                    fila["summary"] = traduccion.get(fila["summary"], fila["summary"])
-                except ValueError:
-                    pass
-                datos_clima.append(fila)
+                    ),
+                    return_dtype=pl.String,
+                ),
+                # Traducir el resumen
+                pl.col("summary").replace(traduccion, default=pl.col("summary")),
+                pl.col("prediccion_modelo").replace(
+                    traduccion, default=pl.col("prediccion_modelo")
+                ),
+            ]
+        )
 
-    # Mostramos 24 registros por página (1 día cada hora)
+        # 3. Convertimos a lista de diccionarios para que el Paginator lo entienda
+        datos_clima = df.to_dicts()
+    else:
+        datos_clima = []
+
+    # 4. Paginación (se mantiene igual)
     paginator = Paginator(datos_clima, 24)
-
-    # Obtenemos el número de página de la URL (ej: /datos/sevilla/?page=2)
     numero_pagina = request.GET.get("page")
     page_obj = paginator.get_page(numero_pagina)
 
