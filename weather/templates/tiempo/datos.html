@@ -1,9 +1,11 @@
 {% extends 'tiempo/base.html' %} {% load static %} {% block title %}
 <title>{{ provincia|upper }}</title>
 {% endblock %} {% block content %}
-<h1 class="h2 text-center my-4">
+<h2 class="h2 text-center my-4">AHORA EN {{ provincia|upper }}</h2>
+<h2 class="h2 text-center my-4">
   PREDICCIÓN PRÓXIMOS 7 DÍAS EN {{ provincia|upper }}
-</h1>
+</h2>
+<!-- Tabla aquí -->
 <nav aria-label="Navegacion de paginas">
   <ul class="pagination justify-content-center">
     {% if datos.has_previous %}
