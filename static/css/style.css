@@ -3,13 +3,13 @@ svg {
 }
 
 svg .provincia {
-  fill: #e0e0e0;
+  fill: #cff4fc;
   cursor: pointer;
   stroke-width: 0.25px;
   transition: fill 0.3s ease;
 }
 svg .provincia:hover {
-  fill: #2ecc71;
+  fill: #0dcaf0;
 }
 
 .table-hover > tbody > tr:hover {
