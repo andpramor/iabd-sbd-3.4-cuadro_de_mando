@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block title %}{% endblock %}
     <!-- Bootstrap CSS CDN link -->
-    <link
-      rel="shortcut icon"
-      href="{% static 'icons/favicon.svg' %}"
-      type="image/svg+xml"
-    />
+    <link rel="shortcut icon" href="{% static 'icons/favicon.svg' %}" type="image/svg+xml" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -24,38 +20,16 @@
       <nav class="navbar navbar-expand-lg bg-info-subtle">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
-            <img
-              src="{% static 'icons/favicon.svg' %}"
-              alt="Logo"
-              width="30"
-              height="24"
-              class="d-inline-block align-text-top"
-            />
+            <img src="{% static 'icons/favicon.svg' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top" />
             Inicio
           </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse w-100" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Predicciones
-                </a>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Predicciones </a>
                 <ul class="dropdown-menu">
                   <li>
                     <a class="dropdown-item" href="/datos/almeria">Almería</a>
@@ -84,33 +58,19 @@
                 </ul>
               </li>
               <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Gráficos
-                </a>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Gráficos </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="/graficos/almeria"
-                      >Almería</a
-                    >
+                    <a class="dropdown-item" href="/graficos/almeria">Almería</a>
                   </li>
                   <li>
                     <a class="dropdown-item" href="/graficos/cadiz">Cádiz</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/graficos/cordoba"
-                      >Córdoba</a
-                    >
+                    <a class="dropdown-item" href="/graficos/cordoba">Córdoba</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/graficos/granada"
-                      >Granada</a
-                    >
+                    <a class="dropdown-item" href="/graficos/granada">Granada</a>
                   </li>
                   <li>
                     <a class="dropdown-item" href="/graficos/huelva">Huelva</a>
@@ -122,36 +82,25 @@
                     <a class="dropdown-item" href="/graficos/malaga">Málaga</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/graficos/sevilla"
-                      >Sevilla</a
-                    >
+                    <a class="dropdown-item" href="/graficos/sevilla">Sevilla</a>
                   </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'informes' %}">Informes</a>
+              </li>
                 </ul>
               </li>
             </ul>
             <ul class="navbar-nav ms-auto">
               <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  GitHub
-                </a>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> GitHub </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                   <li>
-                    <a class="dropdown-item" href="https://github.com/andpramor"
-                      >Andrés</a
-                    >
+                    <a class="dropdown-item" href="https://github.com/andpramor">Andrés</a>
                   </li>
                   <li>
-                    <a
-                      class="dropdown-item"
-                      href="https://github.com/Nastupiste"
-                      >Manuel Jesús</a
-                    >
+                    <a class="dropdown-item" href="https://github.com/Nastupiste">Manuel Jesús</a>
                   </li>
                 </ul>
               </li>

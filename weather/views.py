@@ -147,3 +147,7 @@ def datos(request, provincia):
     }
 
     return render(request, "tiempo/datos.html", context)
+
+
+def informes(request):
+    return render(request, "tiempo/informes.html")

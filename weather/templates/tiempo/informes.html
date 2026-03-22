@@ -1,0 +1,41 @@
+{% extends 'tiempo/base.html' %} 
+{% load static %} {% block title %}
+<title>Informes del Modelo</title>
+{% endblock %} 
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="h1 text-center mb-5">INFORMES DETALLADOS DEL MODELO</h1>
+    
+    <div class="row justify-content-center gap-4 d-flex align-items-stretch">
+        
+        <div class="col-md-5 d-flex"> <div class="card shadow rounded bg-white w-100"> <img 
+                    src="{% static 'images/confusion_matrix.png' %}" 
+                    class="card-img-top p-2" 
+                    alt="Gráfico de rendimiento del modelo 1"
+                    style="height: 300px; object-fit: contain;" >
+                <div class="card-body bg-light border-top d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title text-center">Matriz de Confusión</h5>
+                        <p class="card-text text-muted text-center">Visualización de los aciertos y fallos del modelo por clase.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5 d-flex"> <div class="card shadow rounded bg-white w-100"> <img 
+                    src="{% static 'images/weather_clusters.png' %}" 
+                    class="card-img-top p-2" 
+                    alt="Gráfico de rendimiento del modelo 2"
+                    style="height: 300px; object-fit: contain;" >
+                <div class="card-body bg-light border-top d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title text-center">Curva ROC y AUC</h5>
+                        <p class="card-text text-muted text-center">Métrica de la capacidad de discriminación del modelo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
