@@ -50,14 +50,14 @@
 
 <nav aria-label="Navegacion de paginas">
   <ul class="pagination justify-content-center">
-    {% if datos.has_previous %}
+    {% if datos_hourly.has_previous %}
     <li class="page-item">
       <a class="page-link text-black" href="?page=1">&laquo; Primero</a>
     </li>
     <li class="page-item">
       <a
         class="page-link text-black"
-        href="?page={{ datos.previous_page_number }}"
+        href="?page={{ datos_hourly.previous_page_number }}"
         >Anterior</a
       >
     </li>
@@ -70,20 +70,22 @@
 
     <li class="page-item active">
       <span class="page-link bg-info-subtle text-black border-info">
-        Día {{ datos.number }} de {{ datos.paginator.num_pages }}
+        Día {{ datos_hourly.number }} de {{ datos_hourly.paginator.num_pages }}
       </span>
     </li>
 
-    {% if datos.has_next %}
+    {% if datos_hourly.has_next %}
     <li class="page-item">
-      <a class="page-link text-black" href="?page={{ datos.next_page_number }}"
+      <a
+        class="page-link text-black"
+        href="?page={{ datos_hourly.next_page_number }}"
         >Siguiente</a
       >
     </li>
     <li class="page-item">
       <a
         class="page-link text-black"
-        href="?page={{ datos.paginator.num_pages }}"
+        href="?page={{ datos_hourly.paginator.num_pages }}"
         >Último &raquo;</a
       >
     </li>
