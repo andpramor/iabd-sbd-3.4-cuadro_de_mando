@@ -49,8 +49,9 @@ def index(request):
     return render(request, "tiempo/index.html")
 
 
-def graficos(request):
-    return render(request, "tiempo/graficos.html")
+def graficos(request, provincia):
+    context = {"provincia": provincia}
+    return render(request, "tiempo/graficos.html", context)
 
 
 def get_datos_hourly(provincia):
