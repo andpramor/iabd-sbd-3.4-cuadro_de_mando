@@ -93,7 +93,7 @@ def get_datos_current(provincia):
         settings.BASE_DIR, f"data_silver_layer/data_current/{provincia}.csv"
     )
     df = pl.read_csv(CSV_PATH)
-    #  Queremos temperature, summary, cloud_cover, precip_total?, precip_type?, wind_speed, wind_dir.
+
     if df is not None and not df.is_empty():
         df = df.with_columns(
             [
