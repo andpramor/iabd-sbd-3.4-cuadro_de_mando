@@ -1,6 +1,15 @@
 {% extends 'tiempo/base.html' %} {% load static %} {% block title %}
-<title>{{ provincia|upper }}</title>
+<title>Predicciones - {{ provincia|capfirst }}</title>
 {% endblock %} {% block content %}
+
+<div class="d-flex justify-content-end my-4">
+  <a
+    href="{% url 'graficos' provincia=provincia %}"
+    style="--bs-btn-color: black"
+    class="btn btn-outline-info"
+    >Ver gráficos</a
+  >
+</div>
 <h2 class="h2 text-center my-4">AHORA EN {{ provincia|upper }}</h2>
 
 <div class="table-responsive">
@@ -45,7 +54,7 @@
 </div>
 
 <h2 class="h2 text-center my-4">
-  PREDICCIÓN PRÓXIMOS 7 DÍAS EN {{ provincia|upper }}
+  PREDICCION PROXIMOS 7 DIAS EN {{ provincia|upper }}
 </h2>
 
 <nav aria-label="Navegacion de paginas">
