@@ -143,3 +143,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Indica a Django que confíe en el header que envía Cloudflare para el protocolo (HTTPS)
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
