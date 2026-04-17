@@ -1,7 +1,7 @@
 <h1 align="center">🌦️ Andalucía Weather Dashboard</h1>
 
 <p align="center">
-  <img src="./banner.svg" alt="Banner for README.md" width="500">
+  <img src="./banner.png" alt="Banner for README.md" width="500">
 </p>
 
 Interactive web dashboard for weather visualisation and forecasting across the provinces of _Andalucía_, built with **Django** using the data generated in the previous assigment as a silver layer.
