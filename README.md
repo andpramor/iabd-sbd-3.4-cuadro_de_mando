@@ -1,10 +1,10 @@
 <h1 align="center">🌦️ Andalucía Weather Dashboard</h1>
 
+An interactive web dashboard for weather visualisation and forecasting across the provinces of _Andalucía_, built with **Django** using the data generated in the previous assigment as a silver layer.
+
 <p align="center">
   <img src="./banner.png" alt="Banner for README.md" width="500">
 </p>
-
-Interactive web dashboard for weather visualisation and forecasting across the provinces of _Andalucía_, built with **Django** using the data generated in the previous assigment as a silver layer.
 
 > **Academic note:** This project goes beyond the proposed stack (Streamlit) and implements a full web architecture with Django + Gunicorn, deployed to production via Cloudflare Tunnels on a self-hosted Debian server on the local network of one of the students. If you are reading this after May, 2026, the production url will probably not work.
 
@@ -14,12 +14,12 @@ Interactive web dashboard for weather visualisation and forecasting across the p
 
 - [Description](#-description)
 - [Features](#-features)
+- [Production Deployment](#-production-deployment)
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
 - [Prerequisites](#-prerequisites)
 - [Local Installation & Setup](#-local-installation--setup)
 - [Environment Variables](#-environment-variables)
-- [Production Deployment](#-production-deployment)
 - [Authors](#-authors)
 
 ---
@@ -37,6 +37,12 @@ This dashboard lets users explore forecasts weather data for each Andalusian pro
 - **Dynamic charts** generated with Plotly from each province's dataset.
 - Production server with **Gunicorn** and public exposure via **Cloudflare Tunnels**.
 - Dependency and virtual environment management with **uv**.
+
+---
+
+## 🖥️ Production Deployment
+
+The project is deployed [here](https://sbdmando.andrespradomorgaz.com/), using a **Debian** server on the local network, exposed to the internet via **Cloudflare Tunnels** without the need to open any ports on the router.
 
 ---
 
@@ -138,12 +144,6 @@ DEBUG=True
 # Allowed hosts, comma-separated
 ALLOWED_HOSTS="127.0.0.1,localhost"
 ```
-
----
-
-## 🖥️ Production Deployment
-
-The project is deployed [here](https://sbdmando.andrespradomorgaz.com/), using a **Debian** server on the local network, exposed to the internet via **Cloudflare Tunnels** without the need to open any ports on the router.
 
 ---
 
