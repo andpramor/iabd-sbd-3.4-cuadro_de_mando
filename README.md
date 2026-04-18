@@ -133,4 +133,4 @@ ALLOWED_HOSTS="127.0.0.1,localhost"
 
 ## 👤 Authors
 
-Project developed by Andrés Prado Morgaz (@andpramor) and Manuel J. de la Rosa Cosano (@Nastupiste).
+Project developed by _Andrés Prado Morgaz_ ([@andpramor](https://github.com/andpramor)) and _Manuel J. de la Rosa Cosano_ ([@Nastupiste](https://github.com/Nastupiste)).
