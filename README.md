@@ -52,21 +52,21 @@ The project is [deployed here](https://sbdmando.andrespradomorgaz.com/), using a
 ```
 .
 ├── config/                 # Django project configuration
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
+│   ├── settings.py         # Project general configuration
+│   ├── urls.py             # Navigation (includes weather/urls.py)
+│   └── wsgi.py             # Project server
 ├── data_silver_layer/      # Datasets produced in the previous assigment
 ├── static/                 # CSS and static assets
 ├── weather/                # Main Django app
 │   ├── templates/          # HTML templates (SVG map, tables, charts)
 │   ├── views.py            # Main business logic (controller in traditional ModelViewController architecture)
-│   ├── urls.py
-│   └── models.py
+│   ├── urls.py             # Navigation
+│   └── models.py           # Database ORM
 ├── .env                    # Environment variables (not commited, example below)
-|-- .gitignore
-|-- manage.py
+├── .gitignore              # Excluded files for the repo (virtual environment, etc.)
+├── manage.py               # Django's control script
 ├── pyproject.toml          # Dependencies managed by uv
-└── README.md
+└── README.md               # This file
 ```
 
 ---
