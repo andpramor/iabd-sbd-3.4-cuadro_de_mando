@@ -28,7 +28,7 @@ This dashboard lets users explore forecasts weather data for each Andalusian pro
 
 ## 🖥️ Production Deployment
 
-The project is deployed [here](https://sbdmando.andrespradomorgaz.com/), using a **Debian** server on the local network, exposed to the internet via **Cloudflare Tunnels** without the need to open any ports on the router.
+The project is [deployed here](https://sbdmando.andrespradomorgaz.com/), using a **Debian** server on the local network, exposed to the internet via **Cloudflare Tunnels** without the need to open any ports on the router.
 
 ---
 
