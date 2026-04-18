@@ -10,20 +10,6 @@ An interactive web dashboard for weather visualisation and forecasting across th
 
 ---
 
-## 📋 Table of Contents
-
-- [Description](#-description)
-- [Features](#-features)
-- [Production Deployment](#-production-deployment)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Prerequisites](#-prerequisites)
-- [Local Installation & Setup](#-local-installation--setup)
-- [Environment Variables](#-environment-variables)
-- [Authors](#-authors)
-
----
-
 ## 📖 Description
 
 This dashboard lets users explore forecasts weather data for each Andalusian province through a clean, intuitive interface. The home page features an **interactive SVG map of Andalucía** with all eight provinces as clickable regions; selecting a province navigates to detailed data tables and charts generated from the predictive models trained during earlier phases of the project.
@@ -85,17 +71,15 @@ The project is deployed [here](https://sbdmando.andrespradomorgaz.com/), using a
 
 ---
 
-## ✅ Prerequisites
+## 🚀 Local Installation & Setup
+
+### 0. Prerequisites
 
 - Python **3.13**
 - [`uv`](https://docs.astral.sh/uv/) installed on your system:
   ```bash
   curl -LsSf https://astral.sh/uv/install.sh | sh
   ```
-
----
-
-## 🚀 Local Installation & Setup
 
 ### 1. Clone the repository
 
