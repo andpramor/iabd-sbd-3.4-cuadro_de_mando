@@ -6,7 +6,7 @@ An interactive web dashboard for weather visualisation and forecasting across th
   <img src="./banner.png" alt="Banner for README.md" width="500">
 </p>
 
-> **Academic note:** This project goes beyond the proposed stack (Streamlit) and implements a full web architecture with Django + Gunicorn, deployed to production via Cloudflare Tunnels on a self-hosted Debian server on the local network of one of the students. If you are reading this after May, 2026, the production url will probably not work.
+> **Academic note:** This project goes beyond the proposed stack (Streamlit) and implements a full web architecture with Django + Gunicorn, [deployed to production](https://sbdmando.andrespradomorgaz.com/) via Cloudflare Tunnels on a self-hosted Debian server on the local network of one of the students. If you are reading this after May, 2026, the production url will probably not work.
 
 ---
 
@@ -133,4 +133,4 @@ ALLOWED_HOSTS="127.0.0.1,localhost"
 
 ## 👤 Authors
 
-Project developed as the final submission for the Big Data module.
+Project developed by Andrés Prado Morgaz (@andpramor) and Manuel J. de la Rosa Cosano (@Nastupiste).
