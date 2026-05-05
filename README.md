@@ -129,6 +129,37 @@ DEBUG=True
 ALLOWED_HOSTS="127.0.0.1,localhost"
 ```
 
+## 📊 Data Exploitation Phase: From Polars to Tableau
+
+In this phase of the project, we integrated programmatic data manipulation in Python with Business Intelligence using **Tableau Desktop**. The workflow spans from the final processing stages in **Polars** to the creation of an **interactive analytical Dashboard**.
+
+### 1. Preparation and Final Export (ETL)
+To ensure full compatibility with Tableau, the following steps were performed within the Python environment:
+*   **Cleaning & ML**: The results from the previously generated classification (**Random Forest**) and segmentation (**K-Means**) models were incorporated into the final dataset.
+*   **Format Correction**: The dataset `datos_clima_tableau_ES.csv` was exported using semicolons (`;`) as separators and commas (`,`) as decimal separators to match Tableau's regional Spanish configuration.
+*   **DB Extraction**: Raw data from the `openmeteo` table was extracted from the SQLite database (`data.db`) to enable a hybrid data connection.
+
+### 2. Hybrid Connection and Modeling
+An integrated data model was established in Tableau:
+*   **File Loading**: The analytical CSVs processed by Polars were imported as the primary data source.
+*   **Data Relationship**: The original raw database was linked to the processed dataset through a **Relationship** based on temporal fields (`Date Dt` / `Timestamp`), simulating a real-world Data Warehouse environment.
+
+### 3. Calculated Fields Engineering
+Custom metrics were developed to deepen the meteorological analysis:
+*   **Thermal Sensation (Sensación Térmica)**: A logical classification combining `Temperature` and `Humidity` to define comfort categories such as "Muggy Heat" or "Humid Cold".
+*   **Time of Day (Momento del Día)**: Hourly segmentation into "Morning", "Afternoon", and "Night" to identify daily behavioral patterns.
+*   **Weather Alert**: A risk metric based on critical levels of precipitation probability and humidity.
+*   **Day of the Week**: Translation of Polars' numerical values (1-7) into descriptive text labels for better readability.
+
+### 4. Visualizations and Dashboard Design
+Four fundamental worksheets were created for the analysis:
+1.  **Comfort Analysis (Bars)**: A count of hours recorded for each thermal sensation category.
+2.  **Risk by Time Slot (Heatmap)**: A matrix crossing days and hours to display the average `Precip Prob`.
+3.  **AI Segmentation (Scatter Plot)**: Visualization of the machine learning clusters, demonstrating how the **K-Means** algorithm grouped data based on humidity and temperature.
+4.  **Weekly Trends (Dual Axis)**: A temporal line chart synchronizing temperature evolution with precipitation probability.
+
+**Interactivity**: The final Dashboard uses the **AI Segmentation** sheet as a dynamic filter; by selecting a specific cluster, all other charts update automatically to reflect the behavior of that specific group.
+
 ---
 
 ## 👤 Authors
